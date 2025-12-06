@@ -1,32 +1,41 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+const http = require('http');
 const cors = require('cors');
+const { connectDB, mongoose } = require('./config/db');
 const authRoutes = require('./routes/auth');
+const restRoutes = require('./routes/restaurants');
+const menuRoutes = require('./routes/menu');
+const ordersRoutes = require('./routes/orders');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
+const server = http.createServer(app);
+
+const { Server } = require('socket.io');
+const io = new Server(server, { cors: { origin: '*' } });
+
+// store io instance for routes
+app.set('io', io);
+
+io.on('connection', (socket) => {
+  // join restaurant room after client sends join event w/ token or restaurantId
+  socket.on('join', ({ restaurantId }) => {
+    if (restaurantId) socket.join(`restaurant:${restaurantId}`);
+  });
+});
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res)=>{
-    res.send("Backend is Live")
-})
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/restaurants', restRoutes);
+app.use('/api/v1/restaurants', menuRoutes);    // /:slug/menu
+app.use('/api/v1/restaurants', ordersRoutes);  // /:slug/orders
 
-// mount routes
-app.use('/', authRoutes);
-
-(async function start() {
-  try {
-    if (!MONGO_URI) throw new Error('MONGO_URI not set in .env');
-    await mongoose.connect(MONGO_URI);
-    console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server started on ${PORT}`));
-  } catch (err) {
-    console.error('Start error:', err);
-    process.exit(1);
-  }
-})();
+const start = async () => {
+  await connectDB(process.env.MONGODB_URI);
+  const port = process.env.PORT || 4000;
+  server.listen(port, () => console.log(`Server running on ${port}`));
+};
+start();
