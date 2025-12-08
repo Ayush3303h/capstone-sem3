@@ -12,7 +12,7 @@ export default function TableQRGenerator({ baseSlug }) {
   const restaurantSlug = baseSlug || paramSlug || "";
 
   // Automatically use your production domain
-  const fixedBase = "https://qrodering.vercel.app";
+  const fixedBase = "https://capstone-sem3-lilac.vercel.app";
 
   const handleGenerate = () => {
     const count = parseInt(numTables);
