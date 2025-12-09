@@ -1,4 +1,3 @@
-// src/components/OrdersManager.jsx
 import { useEffect, useState } from "react";
 import { apiGet, apiPut } from "../api";
 import socket from "../socket";

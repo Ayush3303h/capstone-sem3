@@ -1,4 +1,3 @@
-// src/components/MenuList.jsx
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "../api";
 import { useCart } from "../context/CartContext";

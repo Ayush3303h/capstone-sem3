@@ -1,4 +1,3 @@
-// src/helpers/placeOrder.js
 import { apiPost } from "../api";
 
 export async function placeOrder(restaurantSlug = "default", tableNumber, items) {

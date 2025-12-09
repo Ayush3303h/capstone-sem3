@@ -1,4 +1,3 @@
-// src/components/AdminDashboard.jsx
 import { useState, useEffect, useRef } from "react";
 import AdminLogin from "./AdminLogin";
 import MenuManager from "./MenuManager";

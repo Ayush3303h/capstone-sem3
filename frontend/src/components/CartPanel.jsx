@@ -1,4 +1,3 @@
-// src/components/CartPanel.jsx
 import { useNavigate, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";

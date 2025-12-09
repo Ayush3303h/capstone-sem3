@@ -1,4 +1,3 @@
-// src/components/Checkout.jsx
 import { useEffect, useState, useRef } from "react";
 import { apiGet } from "../api";
 import { useLocation, useNavigate, useParams } from "react-router-dom";

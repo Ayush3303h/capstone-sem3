@@ -1,4 +1,3 @@
-// src/components/MenuManager.jsx
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { apiGet, apiPost } from "../api";

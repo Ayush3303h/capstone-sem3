@@ -1,7 +1,3 @@
-/**
- * Usage: set env vars GOOGLE_APPLICATION_CREDENTIALS (path to service account JSON)
- * and MONGODB_URI, then: node migrate_from_firestore.js
- */
 require('dotenv').config();
 const admin = require('firebase-admin');
 const { connectDB } = require('../config/db');

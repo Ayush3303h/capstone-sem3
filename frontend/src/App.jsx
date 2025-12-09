@@ -1,32 +1,3 @@
-// // src/App.jsx
-// import React from "react";
-// import { Routes, Route } from "react-router-dom";
-// import MenuList from "./components/MenuList";
-// import Checkout from "./components/Checkout";
-// import AdminLogin from "./components/AdminLogin";
-// import AdminDashboard from "./components/AdminDashboard";
-// import Navbar from "./components/Navbar";
-// import QRTableDetector from "./components/QRTableDetector";
-
-// export default function App() {
-//   return (
-//     <div className="min-h-screen bg-gray-50">
-//       <Navbar />
-//       <main className="max-w-7xl mx-auto">
-//         <Routes>
-//           <Route path="/:restaurantSlug/checkout" element={<Checkout />} />
-//           <Route path="/:restaurantSlug/admin" element={<AdminLogin />} />
-//           <Route path="/:restaurantSlug/admin/dashboard" element={<AdminDashboard />} />
-//           <Route path="/:restaurantSlug/qr" element={<QRTableDetector />} />
-//           <Route path="/:restaurantSlug" element={<MenuList />} />
-//           <Route path="/" element={<MenuList />} />
-//         </Routes>
-//       </main>
-//     </div>
-//   );
-// }
-
-// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import MenuList from "./components/MenuList";
 import Checkout from "./components/Checkout";
@@ -34,7 +5,7 @@ import QRTableDetector from "./components/QRTableDetector";
 import AdminDashboard from "./components/AdminDashboard";
 import Navbar from "./components/Navbar";
 import { motion } from "framer-motion";
-import HeroFood from "./Gemini_Generated_Image_sqiaposqiaposqia.png";
+import HeroFood from "./logopng.png";
 
 import "./index.css"; // Tailwind build
 
@@ -81,7 +52,7 @@ function GuestExperience() {
       </main>
 
       <footer className="text-center py-6 text-gray-400 text-sm">
-        © {new Date().getFullYear()} Streake Dining ✨
+        © {new Date().getFullYear()} ScanMyMeal ✨
       </footer>
     </div>
   );

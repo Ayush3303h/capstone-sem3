@@ -1,36 +1,3 @@
-// // src/api/index.js
-// import axios from "axios";
-// const baseURL = import.meta.env.VITE_API_BASE || "";
-
-// const api = axios.create({
-//   baseURL,
-//   headers: { "Content-Type": "application/json" },
-// });
-
-// export default api;
-
-// // helpers
-// export async function apiGet(path, opts = {}) {
-//   const res = await api.get(path, opts);
-//   return res.data;
-// }
-// export async function apiPost(path, body, opts = {}) {
-//   const res = await api.post(path, body, opts);
-//   return res.data;
-// }
-// export async function apiPut(path, body, opts = {}) {
-//   const res = await api.put(path, body, opts);
-//   return res.data;
-// }
-// export async function apiDelete(path, opts = {}) {
-//   const res = await api.delete(path, opts);
-//   return res.data;
-// }
-
-
-
-
-// frontend/src/api/index.js
 import axios from "axios";
 import { getToken } from "../auth";
 
